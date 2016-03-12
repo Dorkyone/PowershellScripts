@@ -1,0 +1,1 @@
+﻿winrm create winrm/config/listener?Address=*+Transport=HTTPS '@{Hostname="";CertificateThumbprint="4418394A45826E7A3DE78BA1E250F7ACE93D1044"}'
