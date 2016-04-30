@@ -1,3 +1,10 @@
-﻿$secpasswd = ConvertTo-SecureString "" -AsPlainText -Force
-$mycreds = New-Object System.Management.Automation.PSCredential ("", $secpasswd)
-Enter-PSSession -ComputerName 192.168.1.2 -Credential: $mycreds 
+﻿$password = "TheFlyingFish"
+$uName = "192.168.0.18\XBMC"
+$CompIP = "192.168.0.18"
+
+Set-Item wsman:\localhost\client\trustedhosts $CompIP 
+Restart-Service WinRM
+
+$secpasswd = ConvertTo-SecureString $password -AsPlainText -Force
+$mycreds = New-Object System.Management.Automation.PSCredential ($uName, $secpasswd)
+Enter-PSSession -ComputerName $CompIP -Credential $mycreds 

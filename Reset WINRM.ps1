@@ -1,0 +1,1 @@
+﻿winrm invoke Restore winrm/Config
