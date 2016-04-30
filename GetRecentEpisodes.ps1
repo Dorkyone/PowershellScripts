@@ -6,12 +6,12 @@
   )
 
 $strDestination = 'C:\media\Sync\'
-$strCopyNum = 8
+$strCopyNum = 5
 
-$MySQLAdminUserName = ''
-$MySQLAdminPassword = ''
-$MySQLDatabase = 'myvideos93'
-$MySQLHost = '192.168.1.2'
+$MySQLAdminUserName = 'XBMC'
+$MySQLAdminPassword = 'TheFlyingFish'
+$MySQLDatabase = 'myvideos99'
+$MySQLHost = '192.168.0.18'
 $strConnectionString = "server=" + $MySQLHost + ";port=3306;uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+ $MySQLDatabase
 
 Try {
@@ -21,7 +21,7 @@ Try {
   $objConnection.ConnectionString = $strConnectionString
   $objConnection.Open()
 
-  $strSQL = "select concat(SUBSTRING(replace(strPath, '/', '\\'), 5) ,strFileName) as fPath, strFileName  from myvideos93.files join myvideos93.episode on episode.idfile=files.idfile join myvideos93.path on path.idPath=files.idPath order by files.dateAdded DESC LIMIT " + $strCopyNum ;
+  $strSQL = "select concat(SUBSTRING(replace(strPath, '/', '\\'), 5) ,strFileName) as fPath, strFileName from myvideos99.files join myvideos99.episode on episode.idfile=files.idfile join myvideos99.path on path.idPath=files.idPath where files.playCount is null order by files.dateAdded ASC LIMIT " + $strCopyNum ;
   $objCommand = New-Object MySql.Data.MySqlClient.MySqlCommand($strSQL, $objConnection)
  
   $objDataAdapter = New-Object MySql.Data.MySqlClient.MySqlDataAdapter($objCommand)
@@ -38,7 +38,7 @@ Try {
       if (!(Test-Path -Path $strTransDest)) {
           Write-Host "Copying from " $strFullPath
           try {
-            #Copy-Item -Path $strFullPath -Destination $strDestination -force
+            Copy-Item -Path $strFullPath -Destination $strDestination -force
             Write-Host "Copied " $strFileName
           }
           catch{
