@@ -1,5 +1,5 @@
-﻿$password = "TheFlyingFish"
-$uName = "192.168.0.18\XBMC"
+﻿$password = " "
+$uName = "192.168.0.18\UserName"
 $CompIP = "192.168.0.18"
 
 Set-Item wsman:\localhost\client\trustedhosts $CompIP 
