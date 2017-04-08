@@ -8,10 +8,10 @@
 $strDestination = 'C:\media\Sync\'
 $strCopyNum = 5
 
-$MySQLAdminUserName = 'XBMC'
-$MySQLAdminPassword = 'TheFlyingFish'
+$MySQLAdminUserName = ''
+$MySQLAdminPassword = ''
 $MySQLDatabase = 'myvideos99'
-$MySQLHost = '192.168.0.18'
+$MySQLHost = ''
 $strConnectionString = "server=" + $MySQLHost + ";port=3306;uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+ $MySQLDatabase
 
 Try {

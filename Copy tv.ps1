@@ -16,3 +16,4 @@ $Source = '\\192.168.1.2\MEDIA'
          # Copy-Item -Path $_.FullName -Destination $Destination -PassThru -force 
         #} 
     }
+    
