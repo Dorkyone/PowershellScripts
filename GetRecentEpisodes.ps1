@@ -10,7 +10,7 @@ $strCopyNum = 5
 
 $MySQLAdminUserName = ''
 $MySQLAdminPassword = ''
-$MySQLDatabase = 'myvideos99'
+$MySQLDatabase = 'myvideos107'
 $MySQLHost = ''
 $strConnectionString = "server=" + $MySQLHost + ";port=3306;uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+ $MySQLDatabase
 
@@ -21,7 +21,7 @@ Try {
   $objConnection.ConnectionString = $strConnectionString
   $objConnection.Open()
 
-  $strSQL = "select concat(SUBSTRING(replace(strPath, '/', '\\'), 5) ,strFileName) as fPath, strFileName from myvideos99.files join myvideos99.episode on episode.idfile=files.idfile join myvideos99.path on path.idPath=files.idPath where files.playCount is null order by files.dateAdded ASC LIMIT " + $strCopyNum ;
+  $strSQL = "select concat(SUBSTRING(replace(strPath, '/', '\\'), 5) ,strFileName) as fPath, strFileName from myvideos107.files join myvideos107.episode on episode.idfile=files.idfile join myvideos107.path on path.idPath=files.idPath where files.playCount is null order by files.dateAdded ASC LIMIT " + $strCopyNum ;
   $objCommand = New-Object MySql.Data.MySqlClient.MySqlCommand($strSQL, $objConnection)
  
   $objDataAdapter = New-Object MySql.Data.MySqlClient.MySqlDataAdapter($objCommand)
