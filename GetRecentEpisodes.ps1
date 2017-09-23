@@ -5,7 +5,7 @@
   [string]$Query
   )
 
-$strDestination = 'C:\media\Sync\'
+$strDestination = 'C:\media\Sync\Media\TV'
 $strCopyNum = 5
 
 $MySQLAdminUserName = ''
